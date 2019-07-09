@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Here is car</h1>
+
+<table>
+<tr th:each="marathon : ${marathonlist}">
+	<td th:text="${marathon.getName()}"> </td>
+	<td th:text="${marathon.getPlace()}"> </td>
+	<td th:text="${marathon.getDate()}"> </td>
+	<td th:text="${marathon.getID()}"> </td>
+	
+</tr>
+<tr th:each="marathon : ${object}">
+	<td th:text="${marathon.getName()}"> </td>
+	<td th:text="${marathon.getPlace()}"> </td>
+	<td th:text="${marathon.getDate()}"> </td>
+	<td th:text="${marathon.getID()}"> </td>
+	
+</tr>
+</table>
+
+
+</body>
+</html>

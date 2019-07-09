@@ -41,11 +41,13 @@ public class Manager {
 	@Column(name="Password")
 	private String password;
 	
+<<<<<<< HEAD
 
 	//@NotEmpty
 	//@NotNull
 	@Column(name="email")
 	//@Pattern(regexp= "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$", message= "Please, enter a valid e-mail")
+
 	private String email;
 	
 	public Manager() {

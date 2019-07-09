@@ -1,5 +1,9 @@
 package com.example.demo.model;
 
+<<<<<<< HEAD
+=======
+import java.util.regex.Matcher;
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,7 +47,11 @@ public class Manager {
 	
 	@NotEmpty
 	@NotNull
+<<<<<<< HEAD
 	@Column(name="email")
+=======
+	@Column(name="e-mail")
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 	@Pattern(regexp= "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$", message= "Please, enter a valid e-mail")
 	private String email;
 	

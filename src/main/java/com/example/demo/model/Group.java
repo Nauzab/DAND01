@@ -12,7 +12,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
+
 @Table(name = "GroupTable")
+
 @Entity
 public class Group {
 

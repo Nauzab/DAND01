@@ -1,16 +1,23 @@
 package com.example.demo.services;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Manager;
+<<<<<<< HEAD
 import com.example.demo.model.Marathon;
 import com.example.demo.repo.ManagerRepo;
 import com.example.demo.repo.MarathonRepo;
 import com.example.demo.repo.RunnerRepo;
+=======
+import com.example.demo.repo.ManagerRepo;
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 
 
 @Service
@@ -19,6 +26,7 @@ public class ManagerImpl implements ManagerService{
 	
 	@Autowired
 	ManagerRepo managerRepo;
+<<<<<<< HEAD
 	
 	@Autowired
 	RunnerRepo runnerRepo;
@@ -26,6 +34,8 @@ public class ManagerImpl implements ManagerService{
 	@Autowired
 	MarathonRepo marathonRepo;
 	
+=======
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 
 	@Override
 	public ArrayList<Manager> selectAll() {
@@ -55,7 +65,11 @@ public class ManagerImpl implements ManagerService{
 
 	@Override
 	public boolean deleteRunnerById(int id_r) {
+<<<<<<< HEAD
 		if(id_r > -1 && runnerRepo.existsById(id_r)) {
+=======
+		if(id > -1 && runnerRepo.existsById(id_r)) {
+>>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 			runnerRepo.deleteById(id_r);
 			return true;
 		} else

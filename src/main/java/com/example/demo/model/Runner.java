@@ -14,7 +14,9 @@ public class Runner {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_r")
+
 	private int id_r;
+
 	
 	@Column(name="Name")
 	@Size(min=2, max=55)
@@ -32,7 +34,9 @@ public class Runner {
 	@Size(min=4, max=20)
 	private String password;
 	
+
 	@Column(name ="Email")
+
 	private String email;
 	
 	
@@ -53,7 +57,9 @@ public class Runner {
 
 	
 	public int getID_r() {
+
 		return id_r;
+
 	}
 
 	public String getName() {

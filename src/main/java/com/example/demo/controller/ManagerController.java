@@ -29,21 +29,66 @@ public class ManagerController {
 		model.addAttribute("object", managerImpl.selectAll());
 		return "managerview";
 	}
-	@GetMapping(value="/addmanager") // 
-	public String addManager(Manager manager) {
+	
+	
+	
+	@GetMapping(value="/addmanager") // localhost:8080/manager/addmanager
+	public String addManagerGet(Manager manager) {
 		// method
-		return "manager";	
+		return "addmanager";	
 	}
 	
+	@GetMapping(value="/loginmanager")
+	public String loginManagerGet(Manager manager) {
+		return "loginmanager";
+	}
+	
+	@GetMapping(value="/areamanager")
+	public String areaManagerGet(Manager manager) {
+		return "areamanager";
+	}
+	
+	@PostMapping(value="/loginmanager")
+	public String loginManagerPost(Manager manager) {
+	
+		if(managerImpl.authorizeManager(manager.getEmail(), manager.getPassword())) {
+			return "redirect:/manager/areamanager";
+		}
+		
+		return "loginmanager";
+		}
+	
+
+	
 	@PostMapping(value="/addmanager")// after submit button pressed
-	public String addcarPost(@Valid Manager manager, BindingResult result) {
+	public String addManagerPost(@Valid Manager manager, BindingResult result) {
 	if(result.hasErrors()) {
 		return "addmanager";
 	}
 	else
 	{
-	managerImpl.insertNewManager(manager);
+		managerImpl.insertNewManager(manager);
 	}
-	return "redirect:/manager";
+	return "redirect:/manager/loginmanager";
 	}
+	
+	@PostMapping(value="areamanager") // 
+	public String createMarathonGet(Manager manager) {
+		return "areamanager";
+	}
+	
+	@PostMapping(value="Create Marathon")// after submit button pressed
+	public String CreateMarathonPost(@Valid Manager manager, BindingResult result) {
+	if(result.hasErrors()) {
+		return "addmanager";
+	}
+	else
+	{
+		managerImpl.insertNewManager(manager);
+	}
+	return "redirect:/manager/loginmanager";
+	}
+	
+	
+	
 }

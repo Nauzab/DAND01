@@ -1,9 +1,5 @@
 package com.example.demo.model;
 
-<<<<<<< HEAD
-=======
-import java.util.regex.Matcher;
->>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,27 +28,24 @@ public class Manager {
 	private String name;
 	
 	
-	@NotEmpty
-	@NotNull
-	@Pattern(regexp="[a-zA-z]+", message="Please write correct surname incuding only letters")
+	//@NotEmpty
+	//@NotNull
+	//@Pattern(regexp="[a-zA-z]+", message="Please write correct surname incuding only letters")
 	@Column(name="Surname")
 	private String surname;
 	
-	@NotEmpty
-	@NotNull
+	//@NotEmpty
+	//@NotNull
 	@Size(min=6, max=20)
-	@Pattern(regexp="^[a-zA-Z0-9]{6,10}$", message="Password can consist of letters and numbers")
+	//@Pattern(regexp="^[a-zA-Z0-9]{6,10}$", message="Password can consist of letters and numbers")
 	@Column(name="Password")
 	private String password;
 	
-	@NotEmpty
-	@NotNull
-<<<<<<< HEAD
+
+	//@NotEmpty
+	//@NotNull
 	@Column(name="email")
-=======
-	@Column(name="e-mail")
->>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
-	@Pattern(regexp= "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$", message= "Please, enter a valid e-mail")
+	//@Pattern(regexp= "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$", message= "Please, enter a valid e-mail")
 	private String email;
 	
 	public Manager() {
@@ -67,6 +60,13 @@ public class Manager {
 		this.password = password;
 		this.email = email;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Hello " + this.name + " " + this.surname + "!";
+	}
+
 
 
 	public int getId() {

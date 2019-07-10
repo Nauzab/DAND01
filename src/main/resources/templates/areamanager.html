@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="${manager.toString()}">
+<form action="#" th:action="@{/marathon/addmarathon}" th:object="${manager}" method="post">
+<input type="submit" value="Create Marathon">
+</form>
+
+<form action="#" th:action="@{/marathon/downloadrunnerdata}" th:object="${manager}" method="post">
+<input type="submit" value="Download Runner's list">
+</form>
+
+<form action="#" th:action="@{/marathon/downloadmarathondata}" th:object="${manager}" method="post">
+<input type="submit" value="Download Marathons's information">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update a marathon</h1>
+ <form action="#" th:action="@{/marathon/updatemarathon/__${id}__}" th:object="${marathon}" method="post">
+ <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
+  <p>Input place here</p> <input type="text" name="Place" th:field="*{place}" placeholder="Place"><br>
+  <p>Input date here</p> <input type="date" name="Date" th:field="*{date}" placeholder="Date"><br>
+  <input type="submit" value="Submit">
+</form> 
+</body>
+</html>

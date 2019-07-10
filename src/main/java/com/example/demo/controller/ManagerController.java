@@ -33,7 +33,8 @@ public class ManagerController {
 	
 	
 	@GetMapping(value="/addmanager") // localhost:8080/manager/addmanager
-	public String addManagerGet(Manager manager) {
+	public String addManagerGet(Manager manager, Model model) {
+		
 		// method
 		return "addmanager";	
 	}
@@ -43,23 +44,45 @@ public class ManagerController {
 		return "loginmanager";
 	}
 	
-	@GetMapping(value="/areamanager")
-	public String areaManagerGet(Manager manager) {
+	@GetMapping(value="/areamanager/{id}")
+	public String areaManagerGet(@PathVariable(name="id")int id, Model model) {
+		
+		try {
+			Manager manager = managerImpl.findByID(id);
+			model.addAttribute("name", manager.getName());
+			model.addAttribute("surname", manager.getSurname());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "areamanager";
 	}
 	
+	
+	@PostMapping(value="CreateMarathon")// after submit button pressed
+	public String CreateMarathonPost(@Valid Manager manager, BindingResult result) {
+	if(result.hasErrors()) {
+		return "areamanager";
+	}
+	else
+	{
+		managerImpl.insertNewManager(manager);
+	}
+	return "redirect:/manager/loginmanager";
+	}
+	
+	
 	@PostMapping(value="/loginmanager")
 	public String loginManagerPost(Manager manager) {
-	
 		if(managerImpl.authorizeManager(manager.getEmail(), manager.getPassword())) {
-			return "redirect:/manager/areamanager";
+			return "redirect:/manager/areamanager/"+ managerImpl.findManagerId(manager.getEmail());
 		}
 		
 		return "loginmanager";
 		}
+
+
 	
-
-
 	@PostMapping(value="/addmanager")// after submit button pressed
 	public String addManagerPost(@Valid Manager manager, BindingResult result) {
 	if(result.hasErrors()) {
@@ -77,17 +100,8 @@ public class ManagerController {
 		return "areamanager";
 	}
 	
-	@PostMapping(value="Create Marathon")// after submit button pressed
-	public String CreateMarathonPost(@Valid Manager manager, BindingResult result) {
-	if(result.hasErrors()) {
-		return "addmanager";
-	}
-	else
-	{
-		managerImpl.insertNewManager(manager);
-	}
-	return "redirect:/manager/loginmanager";
-	}
+	
+	
 	@GetMapping(value="/firstpage") // localhost:8080/firstpage
 	public String chooseManagerGet() {
 		// method
@@ -99,4 +113,11 @@ public class ManagerController {
 
 	return "redirect:/manager/addmanager";
 	}
+	
+	@GetMapping(value = "/exportdata")
+	public String exportData(Model model) {
+		managerImpl.exportDataExcel();
+		//model.addAttribute("object", );
+	return "exportdata";
+}
 }

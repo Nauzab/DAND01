@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<p th:text="${manager.toString()}">
-<form action="#" th:action="@{/marathon/addmarathon}" th:object="${manager}" method="post">
+<p th:text="'Hello ' + ${name} + ' ' + ${surname} + '!'">
+<form action="#" th:action="@{/marathon/addmarathon/__${id}__}" th:object="${manager}" method="post">
 <input type="submit" value="Create Marathon">
 </form>
 

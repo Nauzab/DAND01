@@ -34,6 +34,8 @@ public class Registration {
 	public Registration() {
 		super();
 	}
+	
+	
 
 	public int getId_reg() {
 		return id_reg;

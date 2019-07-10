@@ -41,7 +41,7 @@ public class Manager {
 	@Column(name="Password")
 	private String password;
 	
-<<<<<<< HEAD
+
 
 	//@NotEmpty
 	//@NotNull

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.Runner;
-import com.example.demo.service.RunnerServiceIMP;
+import com.example.demo.services.RunnerServiceIMP;
 
 @Controller
 @RequestMapping(value="/Runner")

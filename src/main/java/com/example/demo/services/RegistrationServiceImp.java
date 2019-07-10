@@ -17,11 +17,7 @@ public class RegistrationServiceImp implements RegistrationService{
 	@Override
 	public ArrayList<Registration> selectAll() {
 		
-<<<<<<< HEAD
 		return null;
-=======
-		return regRepo.selectAll();
->>>>>>> 3b9cc1a8bce2e1769de7298300ad102e2a9dff7c
 	}
 
 	@Override

@@ -88,7 +88,15 @@ public class ManagerController {
 	}
 	return "redirect:/manager/loginmanager";
 	}
+	@GetMapping(value="/firstpage") // localhost:8080/firstpage
+	public String chooseManagerGet() {
+		// method
+		return "firstpage";	
+	}
 	
-	
-	
+	@PostMapping(value="Manager")// after submit button pressed
+	public String chooseManagerPost() {
+
+	return "redirect:/manager/addmanager";
+	}
 }

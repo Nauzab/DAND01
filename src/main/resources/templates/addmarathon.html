@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<h1>Add a marathon name</h1>
+ <form action="#" th:action="@{/marathon/addmarathon}" th:object="${marathon}" method="post">
+  <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
+  <p>Input Marathon place here</p> <input type="text" name="Place" th:field="*{place}" placeholder="Place"><br>
+  <p>Input speed here</p> <input type="text" name="Place" th:field="*{place}" placeholder="Place"><br>
+  <input type="date" name="Date" th:field="*{date}" placeholder="Date"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+</body>
+
+</html>

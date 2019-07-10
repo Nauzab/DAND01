@@ -2,11 +2,14 @@ package com.example.demo.model;
 
 import java.sql.Time;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name = "Result")
@@ -22,6 +25,9 @@ public class Result {
 	@Column(name ="Value")
 	private Time value;
 
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_reg")
+    private Registration registration;
 	public Result() {}
 	
 	public Result(Time value) {

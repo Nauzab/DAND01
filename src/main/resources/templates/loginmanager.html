@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Login as a Manager</h1>
+ <form action="#" th:action="@{/manager/loginmanager}" th:object="${manager}" method="post">
+    <p>Input Your Email </p>
+   		<input type="text" name="Email" th:field="*{email}" placeholder="Email"><br>
+    <p>Input Your Password </p>
+   		<input type="password" name="password" th:field="*{password}" placeholder="Password"><br>
+
+  		<input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>

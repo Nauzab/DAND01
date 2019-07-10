@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Marathon;
 import com.example.demo.repo.MarathonRepo;
+
 @Service
 public class MarathonServiceImpl implements MarathonService /**this is an interface*/ {
 	@Autowired

@@ -99,4 +99,11 @@ public class ManagerController {
 
 	return "redirect:/manager/addmanager";
 	}
+	
+	@GetMapping(value = "/export-data")
+	public String exportData(Model model) {
+		managerImpl.exportDataExcel();
+		//model.addAttribute("object", );
+	return "exportdata";
+}
 }

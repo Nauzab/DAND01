@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	<form action="#" th:action="@{/admin/createRunner}" th:object="${runner}" method="post">
+	<table>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" th:field="*{name}" placeholder="name"></td> 
+			<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Engine Error</td>
+		</tr>
+		
+		<tr>
+			<td>Surname</td>
+			<td><input type="text" th:field="*{surname}" placeholder="surname"></td> 
+			<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Speed Error</td>
+		</tr>
+		
+		<tr>
+			<td>Sex</td>
+			<td><input type="text" th:field="*{sex}" placeholder="sex"> </td>
+			<td th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Speed Error</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" th:field="*{password}" placeholder="password"> </td>
+			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Speed Error</td>
+		</tr>
+		
+		<tr>
+			<td>Email</td>
+			<td><input type="text" th:field="*{email}" placeholder="email"> </td>
+			<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Speed Error</td>
+		</tr>
+		</table>
+		<div><input type="submit" value="Register"/></div>
+		</form>
+		</body>
+</html>

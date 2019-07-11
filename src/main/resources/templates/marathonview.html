@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<table>
+<tr th:each="marathon : ${marathonlist}">
+	<td th:text="${marathon.getName()}"> </td>
+	<td th:text="${marathon.getPlace()}"> </td>
+	<td th:text="${marathon.getDate()}"> </td>
+	<td th:text="${marathon.getId()}"> </td>
+	
+</table>
+
+
+</body>
+<html>

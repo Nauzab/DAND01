@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Organizator's list</h1>
+<table>
+   <th:block th:each="manager : ${object}">
+      <tr>
+         <td th:text="${manager.getName()}"> </td>
+         <td th:text="${manager.getSurname()}"> </td>      
+ 		 <td th:text="${manager.getEmail()}"> </td>	 
+         <td th:text="${manager.getPassword()}"> </td>
+
+         
+      </tr>
+   </th:block>
+</table>
+
+</body>
+</html>

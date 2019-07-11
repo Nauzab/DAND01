@@ -1,0 +1,13 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<h1>Runner</h1>
+
+ <ul>
+  <li><a href="/Runner/RunnerRegister">Register</a></li>
+  <li><a href="/Runner/runnerlogin">Login</a></li>
+</ul> 
+
+
+
+
+</html>

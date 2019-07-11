@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/w3images/forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+    <title>addmarathon</title>
+<h1>Create new marathon</h1>
+
+ <form action="#" th:action="@{/marathon/addmarathon/__${id_m}__}" th:object="${marathon}" method="post">
+  <p>Input marathon name here</p> <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
+  <p>Input marathon place here</p> <input type="text" name="Place" th:field="*{place}" placeholder="Place"><br>
+  <p>Input marathon date</p> <input type="text" name="Date" th:field="*{date}" placeholder="Date"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<h1>Update an existing marathon</h1>
+<form action="#" th:action="@{/marathon/updatemarathon}" th:object="${marathon}" method="post">
+	<p>Input marathon Id here</p> <input type="text" name="Id" th:field="*{id}" placeholder="Id"><br>
+	  <input type="submit" value="Submit">
+</form>
+
+<h1>View an existing marathon</h1>
+<form action="#" th:action="@{/marathon/marathonview}" th:object="${marathon}" method="post">
+	<p>Input marathon Id here</p> <input type="text" name="Id" th:field="*{id}" placeholder="Id"><br>
+	  <input type="submit" value="Submit">
+</form>
+
+</body>
+
+</html>

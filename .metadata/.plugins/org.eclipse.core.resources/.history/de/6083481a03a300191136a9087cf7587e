@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body >
+
+<h1>Create a new Runner's account</h1>
+ <form action="#" th:action="@{/Runner/RunnerRegister}" th:object="${runner}" method="post">
+ 	<p>Input Your Name </p>
+  		<input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
+   	<p>Input Your Surname </p>
+  		<input type="text" name="Surname" th:field="*{surname}" placeholder="Surname"><br>
+    <p>Input Your Email </p>
+   		<input type="text" name="Email" th:field="*{email}" placeholder="Email"><br>
+    <p>Input Your Password </p>
+   		<input type="text" name="password" th:field="*{password}" placeholder="Password"><br>
+
+  		<input type="submit" value="Submit">
+</form> 
+
+		<p>Input data from USER
+		<p />
+</body>
+</html>

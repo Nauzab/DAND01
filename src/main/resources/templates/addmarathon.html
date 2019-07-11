@@ -5,7 +5,7 @@
  <form action="#" th:action="@{/marathon/addmarathon}" th:object="${marathon}" method="post">
   <p>Input marathon place here</p> <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
   <p>Input marathon place here</p> <input type="text" name="Place" th:field="*{place}" placeholder="Place"><br>
-  <p>Input marathon date</p> <input type="date" name="Date" th:field="*{date}" placeholder="Date"><br>
+  <p>Input marathon date</p> <input type="text" name="Date" th:field="*{date}" placeholder="Date"><br>
   <input type="submit" value="Submit">
 </form>
 

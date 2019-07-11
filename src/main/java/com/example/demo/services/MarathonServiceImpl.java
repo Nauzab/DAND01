@@ -7,15 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Marathon;
+import com.example.demo.repo.ManagerRepo;
 import com.example.demo.repo.MarathonRepo;
+import com.example.demo.repo.RunnerRepo;
 
 @Service
 public class MarathonServiceImpl implements MarathonService /**this is an interface*/ {
 	@Autowired
 	MarathonRepo marathonRepo;
+	
+	@Autowired
+	ManagerRepo managerRepo;
+	
+	@Autowired
+	RunnerRepo runnerRepo;
+	
 	@Override
 	public boolean insertNewMarathon(Marathon marathon) {
-		if(marathon==null)
+		if(marathon==null && marathonRepo.existsById(marathon.getId()))
 			return false;
 		if(marathonRepo.existsById(marathon.getId()))
 			return false;
@@ -72,5 +81,5 @@ public class MarathonServiceImpl implements MarathonService /**this is an interf
 	public ArrayList<Marathon> findByPlace(String place) {
 		return marathonRepo.findByPlace(place);
 	}
-
+	
 }

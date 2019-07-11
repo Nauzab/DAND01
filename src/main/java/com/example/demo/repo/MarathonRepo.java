@@ -10,5 +10,6 @@ public interface MarathonRepo extends CrudRepository<Marathon, Integer>{
 	ArrayList<Marathon>findByName(String name);
 	
 	ArrayList<Marathon>findByPlace(String place);
+	Marathon findByDate(String date);
 
 }

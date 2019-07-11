@@ -20,7 +20,7 @@ body, html {height: 100%}
  <title>managerarea</title>
 <body>
 <p th:text="'Hello ' + ${name} + ' ' + ${surname} + '!'">
-<form action="#" th:action="@{/marathon/addmarathon/__${id}__}" th:object="${manager}" method="post">
+<form action="#" th:action="@{/marathon/addmarathon/__${id_m}__}" th:object="${manager}" method="post">
 <input type="submit" value="Create Marathon">
 </form>
 

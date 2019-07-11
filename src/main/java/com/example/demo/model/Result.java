@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.sql.Time;
+import java.util.Random;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -48,6 +49,13 @@ public class Result {
 		this.value = value;
 	}
 
+	public Time generetaResult(int count, double distance) {
+	
+		
+		
+		return value;
+		
+	}
 	
 	
 }

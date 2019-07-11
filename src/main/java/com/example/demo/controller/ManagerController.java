@@ -31,6 +31,8 @@ public class ManagerController {
 	@Autowired
 	EmailSender mailSender;
 	
+	
+
 	@GetMapping(value="managermain")
 	public String mainManagerGet(Manager manager) {
 		return "managermain";
@@ -56,8 +58,8 @@ public class ManagerController {
 		return "loginmanager";
 	}
 	
-	@GetMapping(value="/areamanager/{id}")
-	public String areaManagerGet(@PathVariable(name="id")int id, Model model) {
+	@GetMapping(value="/areamanager/{id_m}")
+	public String areaManagerGet(@PathVariable(name="id_m")int id, Model model) {
 		
 		try {
 			Manager manager = managerImpl.findByID(id);
@@ -71,16 +73,16 @@ public class ManagerController {
 	}
 	
 	
-	@PostMapping(value="/addmarathon")// after submit button pressed
+	@PostMapping(value="/addmarathon/{id_m}")// after submit button pressed
 	public String CreateMarathonPost(@Valid Manager manager, BindingResult result) {
 	if(result.hasErrors()) {
-		return "areamanager/{id}";
+		return "areamanager/{id_m}";
 	}
 	else
 	{
 		managerImpl.insertNewManager(manager);
 	}
-	return "redirect:/manager/loginmanager";
+	return "redirect:/marathon/addmarathon/{id_m}";
 	}
 	
 	
@@ -109,7 +111,7 @@ public class ManagerController {
 	return "redirect:/manager/loginmanager";
 	}
 	
-	@PostMapping(value="areamanager/{id}") // 
+	@PostMapping(value="areamanager/{id_m}") // 
 	public String createMarathonGet(Manager manager) {
 		return "areamanager";
 	}

@@ -1,7 +1,7 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <h1>Runners options</h1>
 <ul>
-  <li><a href="@{/runner/updaterunner/__${id}__}">update</a></li>
+  <li><a th:href="@{'/runner/updaterunner/'+${runner.getID_r()}}">Update</a></li>
 </ul> 
 
 

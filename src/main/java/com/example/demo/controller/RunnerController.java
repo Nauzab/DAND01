@@ -106,10 +106,10 @@ public class RunnerController {
 		return "updaterunner";
 
 	}
-	@PostMapping(value = "/update/{id}")
+	@PostMapping(value = "/updaterunner/{id}")
 	public String runnerpost(@PathVariable(name = "id") int id, Runner runner) {
 		runnerserviceimp.selectById(id);
-		return "redirect:/runner/runnerview";
+		return "redirect:/runner/runnerview/{id}";
 	}
 	@GetMapping(value = "/allrunners")
 	public String allcarsview(Model model) {
@@ -118,5 +118,13 @@ public class RunnerController {
 		return "allrunners";
 	}
 	
-}
+	@GetMapping(value = "/searchrunner")
+		public String searchrunner(Runner runner) {
+			
+			
+		
+		return "searchrunner";
+		}
 	
+	
+}

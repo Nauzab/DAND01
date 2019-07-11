@@ -11,5 +11,6 @@ public interface MarathonService {
 	boolean updateMarathonById(Marathon marathon, int id);
 	boolean deleteMarathonById(int id);
 	ArrayList<Marathon> findByPlace(String place);
+	Marathon findByDate(String date);
 
 }

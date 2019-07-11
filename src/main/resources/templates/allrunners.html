@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Runners list</h1>
+
+<table>
+<tr th:each=" Runner : ${runnerslist}">
+	<td th:text="${Runner.getName()}"> </td>
+	<td th:text="${Runner.getSurname()}"> </td>
+	<td th:text="${Runner.getSex()}"> </td>
+	
+	
+</tr>
+
+	
+</table>
+</body>
+</html>

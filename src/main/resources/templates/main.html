@@ -1,11 +1,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{css/stylesheet.css}">
 <h1>Runner</h1>
 
  <ul>
   <li><a href="/runner/runnerregister">Register</a></li>
   <li><a href="/runner/runnerlogin">Login</a></li>
+  <li><a href="/runner/allrunners">all runners</a></li>
 </ul> 
 
 
 
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+
+</style>
 </html>

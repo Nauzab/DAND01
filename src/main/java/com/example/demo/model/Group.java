@@ -22,7 +22,7 @@ public class Group {
 	@Column(name ="ID_g")
 	private int id_g;
 	
-	@NotEmpty
+	
 	@NotNull
 	@Column(name ="Distance")
 	private double distance;
@@ -34,7 +34,7 @@ public class Group {
 	
 	public Group(double distance) {
 		super();
-		this.distance = distance;
+		 setDistance(distance);
 	}
 
 	public int getId_g() {
@@ -52,6 +52,7 @@ public class Group {
 		else
 			this.distance = 5.0;
 	}
+	
 	
 	
 }

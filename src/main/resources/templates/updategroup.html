@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update a Group</h1>
+ <form action="#" th:action="@{/updategroup/__${id}__}" th:object="${group}" method="post">
+
+    <p>Input Your Distance </p>
+   		<input type="text" name="distance" th:field="*{distance}" placeholder="Distance"><br>
+
+  		<input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	<form action="#" th:action="@{/insertnewgroup}" th:object="${group}" method="post">
+	<table>
+		<tr>
+			<td>Distance</td>
+			<td><input type="text" th:field="*{distance}" placeholder="distance"></td> 
+			<td th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Engine Error</td>
+		</tr>
+
+		</table>
+		<div><input type="submit" value="CreateGroup"/></div>
+		</form>
+		</body>
+		</html>

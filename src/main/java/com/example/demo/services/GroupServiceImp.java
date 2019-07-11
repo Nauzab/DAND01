@@ -43,6 +43,7 @@ public class GroupServiceImp implements GroupService{
 			Group tempGroup = groupRepo.findById(id).get();
 			
 			tempGroup.setDistance(group.getDistance());
+			groupRepo.save(tempGroup);
 			
 		}
 		return false;

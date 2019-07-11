@@ -1,0 +1,18 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update Runner</h1>
+ <form action="#" th:action="@{/runner/update/__${id}__}" th:object="${runner}" method="post">
+ <input type="text" name="Name" th:field="*{Name}" placeholder="Name"><br>
+  <p>Insert your name</p> <input type="text" name="Surname" th:field="*{Surname}" placeholder="Surname"><br>
+  <p>Input year here</p> <input type="text" name="Year" th:field="*{Sex}" placeholder="Sex"><br>
+  <input type="text" name="Password" th:field="*{Password}" placeholder="Password"><br>
+  <input type="submit" value="Submit">
+</form> 
+</body>
+</html>
+
+
+
+
+

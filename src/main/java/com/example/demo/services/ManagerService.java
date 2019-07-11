@@ -17,4 +17,7 @@ public interface ManagerService {
 	boolean exportDataExcel();
 	int findManagerId(String email);
 	Manager findByID(int id)  throws Exception;
+	Manager findByEmail(String email);
+	
+	
 }

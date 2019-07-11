@@ -11,7 +11,8 @@ public interface RunnerService {
 	boolean autorizeRunner(String email, String password);		
 	Runner selectById(int id);				
 	boolean updateRunnerById(Runner runner, int id);	
-	Runner findByNameAndSurname(String name, String surname);			
+	Runner findByNameAndSurname(String name, String surname);		
+	Runner findByEmail(String email);
 				
 
 }

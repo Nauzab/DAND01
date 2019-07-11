@@ -91,4 +91,16 @@ public class RunnerServiceIMP implements RunnerService {
 	}
 
 }
+	
+@Override
+	public Runner findByEmail(String email) {
+		Runner runner = runnerrepo.findByEmail(email);
+		
+		if(runner!=null) {
+			return runner;
+		}else {
+			return null;
+		}
+		
+	}
 }

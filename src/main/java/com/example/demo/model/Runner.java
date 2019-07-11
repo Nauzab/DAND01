@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.Constraint;
 import javax.validation.constraints.Size;
+
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name="Runner")
@@ -27,8 +30,8 @@ public class Runner {
 	private String surname;
 	
 	@Column(name="Sex")
-	@Size(min=2,max=10)
 	private String sex;
+	
 	
 	@Column(name="Password")
 	@Size(min=4, max=20)

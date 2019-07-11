@@ -40,17 +40,31 @@
 			<td><input type="text" th:field="*{email}" placeholder="email"></td>
 			<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</td>
 		</tr>
-		
 		<tr>
 			<td>Password</td>
-			<td><input type="password" th:field="*{password}" placeholder="password"></td>
-			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</td>
+
+        	<td><input type="password" placeholder="Password" th:field="*{password}" id="password" required></td>
+        	<td><input type="password" placeholder="Confirm Password" id="confirm_password" required></td>
 		</tr>
-	
-		
 		</table>
 		<input type="submit" value="Add manager">
 	</form>
 	
 </body>
+
+<script>
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
 </html>

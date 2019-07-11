@@ -159,4 +159,14 @@ public class ManagerImpl implements ManagerService {
 		
 		throw new Exception("Manager not found by Id");
 	}
+
+	@Override
+	public Manager findByEmail(String email) {
+		Manager manager = managerRepo.findByEmail(email);
+		if(manager != null)
+			return manager;
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.Administrator;
 import com.example.demo.model.Manager;
+import com.example.demo.model.Marathon;
 import com.example.demo.model.Runner;
 import com.example.demo.services.AdministratorServiceImp;
 import com.example.demo.services.ManagerService;
@@ -36,11 +39,14 @@ public class AdministratorController {
 	MarathonService marathonService;
 		
 	@GetMapping(value = "/")
-	public String test(){
+	public String test() throws ParseException  {
+		
+		
 		Administrator ad = new Administrator("nauris", "Zablovskis", "123456", "nauris@inbox.lv");
 		
+	
 		adminService.insertnewAdmin(ad);
-		return "managerview";
+		return "firstpage";
 	}
 	@GetMapping(value = "/authorizeAdmin")
 	public String authorizeAdminGet(Administrator adminstrator) {
@@ -55,7 +61,6 @@ public class AdministratorController {
 		
 		boolean temp = adminService.authorizeAdmin(administrator.getEmail(), administrator.getPassword());
 		if(result.hasErrors()) {
-			System.out.println(temp);
 			
 			return "authorizeadmin";
 		}
@@ -84,7 +89,7 @@ public class AdministratorController {
 		
 		manService.insertNewManager(manager);
 		
-		return "mainpage" ;
+		return "redirect:/admin/firstpage" ;
 		
 		
 	}
@@ -105,7 +110,7 @@ public class AdministratorController {
 		
 		runnerService.insertNewRunner(runner);
 		
-		return "mainpage" ;
+		return "firstpage" ;
 		
 	}
 	
@@ -128,7 +133,7 @@ public class AdministratorController {
 	public String deleteMarathonGet(@PathVariable(name = "id") int id) {
 		
 		marathonService.deleteMarathonById(id);
-		return "mainpage";
+		return "firstpage";
 	}
 
 }

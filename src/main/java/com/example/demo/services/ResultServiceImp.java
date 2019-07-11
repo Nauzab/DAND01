@@ -3,28 +3,37 @@ package com.example.demo.services;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Result;
+import com.example.demo.repo.ResultRepo;
+import com.example.demo.repo.RunnerRepo;
 
 @Service
 public class ResultServiceImp implements ResultService{
 
+	
+		@Autowired
+		ResultRepo resultRepo;
+		
+		
 	@Override
-	public ArrayList<Result> selectAll(int id_mar) {
+	public ArrayList<Result> selectAll() {
+		
+		return (ArrayList<Result>) resultRepo.findAll();
+	}
+
+	@Override
+	public ArrayList<Result> selectByRegId(int id_reg) {
+		
 		
 		return null;
 	}
 
 	@Override
-	public ArrayList<Result> selectByRunnerid(int id_r) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean inserNewResultByGroup(Time value, int id_g) {
-		// TODO Auto-generated method stub
+	public boolean inserNewResultByGroup(Time value, int id_reg) {
+				
 		return false;
 	}
 

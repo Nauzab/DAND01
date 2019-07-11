@@ -7,8 +7,8 @@ import com.example.demo.model.Result;
 
 public interface ResultService {
 	
-	ArrayList<Result> selectAll(int id_reg);
-	ArrayList<Result> selectByRunnerid(int id_r);
+	ArrayList<Result> selectAll();
+	ArrayList<Result> selectByRegId(int id_reg);
 	boolean inserNewResultByGroup(Time value, int id_reg);
 	Result findByEmail(String email);
 	Result findByRegistration(int id_reg);

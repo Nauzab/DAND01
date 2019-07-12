@@ -39,7 +39,7 @@ public class AdministratorController {
 	@Autowired
 	MarathonService marathonService;
 		
-	@GetMapping(value = "/")
+	/*@GetMapping(value = "/")
 	public String test() throws ParseException  {
 		
 		
@@ -48,7 +48,12 @@ public class AdministratorController {
 	
 		adminService.insertnewAdmin(ad);
 		return "firstpage";
-	}
+	}*/
+	
+	
+	
+	//---Authorize admin----////
+	
 	@GetMapping(value = "/authorizeAdmin")
 	public String authorizeAdminGet(Administrator adminstrator) {
 		
@@ -79,7 +84,13 @@ public class AdministratorController {
 		
 		return "adminmain";
 	}
+	//----------------End of Autorize admin--------------//
 	
+	
+	
+	
+	
+	///----------------DELETE MARATHON---------------------//
 	@GetMapping(value = "/adminmarathonview")
 	public String marathonview(Model model) {
 
@@ -88,9 +99,9 @@ public class AdministratorController {
 	}
 	
 	@GetMapping(value = "/deletemarathon")
-	public String deletemarathonviewGet(Model model) {
+	public String deletemarathonviewGet(Model model, Marathon marathon) {
 
-		model.addAttribute("marathon", marathonService.selectAll());
+		model.addAttribute("mar", marathonService.selectAll());
 		return "deletemarathon";
 	}
 	
@@ -101,8 +112,18 @@ public class AdministratorController {
 		return "redirect:/admin/deleteMarathon/"+ marathon.getId();
 	}
 	
+	@GetMapping(value = "/deleteMarathon/{id}")
+	public String deleteMarathonGet(@PathVariable(name = "id") int id) {
+		
+		marathonService.deleteMarathonById(id);
+		return "redirect:/admin/adminmain";
+	}
+	///---------------------END OF DELETE MARATHON-------------------------///
 	
 	
+	
+	//-------------------------CREATE/DELETE MANAGER------------------------///
+
 	@GetMapping(value = "/createManager")
 	public String createManagerGet(Manager manager) { 
 		
@@ -119,11 +140,43 @@ public class AdministratorController {
 		
 		manService.insertNewManager(manager);
 		
-		return "redirect:/admin/firstpage" ;
+		return "redirect:/admin/adminmain" ;
 		
 		
 	}
 	
+	@GetMapping(value = "/adminmanagerview")
+	public String managerview(Model model) {
+
+		model.addAttribute("manager", manService.selectAll());
+		return "adminmanagerview";
+	}
+	
+	
+	@GetMapping(value = "/admindeletemanager")
+	public String deletemanagerviewGet(Model model, Manager manager) {
+
+		model.addAttribute("mar", manService.selectAll());
+		return "admindeletemanager";
+	}
+	
+	@PostMapping(value = "/admindeletemanager")
+	public String deletemanagerviewPost(Manager manager) {
+		
+		
+		return "redirect:/admin/deleteManager/"+ manager.getId();
+	}
+	
+	@GetMapping(value = "/deleteManager/{id}")
+	public String deleteManagerGet(@PathVariable(name = "id") int id) {
+		
+		adminService.deleteManagerById(id);
+		return "redirect:/admin/adminmain";
+	}
+	
+	///-------------------------END OF CREATE/DELETE MANAGER------------\\\
+	
+	///-------------------------------CREATE/DELETE RUNNER--------------////
 	@GetMapping(value = "/createRunner")
 	public String createRunnerGet(Runner runner) {
 		
@@ -140,30 +193,40 @@ public class AdministratorController {
 		
 		runnerService.insertNewRunner(runner);
 		
-		return "firstpage" ;
+		return "redirect:/admin/adminmain" ;
 		
 	}
 	
 	
-	@GetMapping(value = "/deleteManager/{id}")
-	public String deleteManagerGet(@PathVariable(name = "id") int id) {
-		
-		adminService.deleteManagerById(id);
-		return "redirect:/admin/createManager";
+	@GetMapping(value = "/adminrunnerview")
+	public String deleterunnerviewGet(Model model) {
+
+		model.addAttribute("run", runnerService.selectAll());
+		return "adminrunnerview";
 	}
+	
+	@GetMapping(value = "/admindeleterunner")
+	public String deleterunnerviewGet(Model model, Runner runner) {
+
+		model.addAttribute("nun", runnerService.selectAll());
+		return "admindeleterunner";
+	}
+	
+	@PostMapping(value = "/admindeleterunner")
+	public String deleterunnerviewPost(Runner runner) {
+		System.out.println(runner.getId_r());
+		
+		return "redirect:/admin/deleteRunner/"+ runner.getId_r();
+	}
+	
 	
 	@GetMapping(value = "/deleteRunner/{id}")
 	public String deleteRunnerGet(@PathVariable(name = "id") int id) {
 		
 		adminService.deleteRunnerById(id);
-		return "redirect:/admin/createRunner";
+		return "redirect:/admin/adminmain";
 	}
+	//----------------------END OF CREATE/DELETE RUNNER------------------///
 	
-	@GetMapping(value = "/deleteMarathon/{id}")
-	public String deleteMarathonGet(@PathVariable(name = "id") int id) {
-		
-		marathonService.deleteMarathonById(id);
-		return "deletemarathon";
-	}
 
 }

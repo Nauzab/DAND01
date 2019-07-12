@@ -80,7 +80,7 @@ public class RunnerController {
 		if(isInSystem) {
 				System.out.println("Pareizi");
 				Runner runnertemp= runnerserviceimp.findByEmail(runner.getEmail());
-				return "redirect:/runner/runnerview/"+runnertemp.getID_r();
+				return "redirect:/runner/runnerview/"+runnertemp.getId_r();
 				
 			}else{
 		return "runnerlogin";

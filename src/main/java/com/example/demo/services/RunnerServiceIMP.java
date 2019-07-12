@@ -28,7 +28,7 @@ public class RunnerServiceIMP implements RunnerService {
 	@Override
 	public boolean insertNewRunner(Runner runner) {
 
-		if (runner.getID_r() != 0 || runnerrepo.existsById(runner.getID_r())) {
+		if (runner.getId_r() != 0 || runnerrepo.existsById(runner.getId_r())) {
 			return false;
 		} else {
        runnerrepo.save(runner);
@@ -67,7 +67,7 @@ public class RunnerServiceIMP implements RunnerService {
 
 		if (runner != null && runnerrepo.existsById(id)) {
 			Runner runnerTemp = runnerrepo.findById(id).get();
-			System.out.println("TEMP----" + runnerTemp.getID_r());
+			System.out.println("TEMP----" + runnerTemp.getId_r());
 			runnerTemp.setName(runner.getName());
 			runnerTemp.setSurname(runner.getSurname());
 			runnerTemp.setSex(runner.getSex());

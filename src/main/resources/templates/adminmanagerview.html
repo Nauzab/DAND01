@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+
+<table>
+<tr th:each="m : ${manager}">
+	<td th:text="${m.getName()}"> </td>
+	<td th:text="${m.getSurname()}"> </td>
+	<td th:text="${m.getEmail()}"> </td>
+	<td th:text="${m.getId()}"> </td>
+</tr>
+
+</table>
+	<form action="#" th:action="@{/admin/admindeletemanager}"  method="get">
+	<input type="submit" value="delete Manager">
+	</form>
+	<form action="#" th:action="@{/admin/adminmain}"  method="get">
+	<input type="submit" value="BackToMain">
+	</form>
+	
+
+</body>
+</html>

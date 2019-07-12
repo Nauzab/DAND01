@@ -3,11 +3,11 @@
 
 
 <table>
-<tr th:each="marathon : ${marathon}">
-	<td th:text="${marathon.getName()}"> </td>
-	<td th:text="${marathon.getPlace()}"> </td>
-	<td th:text="${marathon.getDate()}"> </td>
-	<td th:text="${marathon.getId()}"></td>
+<tr th:each="ma : ${mar}">
+	<td th:text="${ma.getName()}"> </td>
+	<td th:text="${ma.getPlace()}"> </td>
+	<td th:text="${ma.getDate()}"> </td>
+	<td th:text="${ma.getId()}"></td>
 
 </tr>
 
@@ -15,7 +15,7 @@
 </table>
 
 
-<form action="#" th:action="@{/admin/deletemarathon}"  method="post">
+<form action="#" th:action="@{/admin/deletemarathon}"  th:object="${marathon}"method="post">
 	<p>Input marathon Id here</p> <input type="text" name="Id" th:field="*{id}" placeholder="Id"><br>
 	  <input type="submit" value="Submit">
 </form>

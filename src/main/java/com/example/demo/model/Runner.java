@@ -63,7 +63,7 @@ public class Runner {
 
 
 	
-	public int getID_r() {
+	public int getId_r() {
 
 		return id_r;
 

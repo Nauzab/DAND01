@@ -8,12 +8,12 @@
         <form action="#" th:action="@{/admin/authorizeAdmin}" th:object="${administrator}" method="post">
         <table>
            <tr>
-           	<td><input type="text" th:field="*{email}" placeholder="Email"></td>
-           	<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
+           	<td><input type="email" th:field="*{email}" placeholder="Email"></td>
+           	
            </tr>
            <tr>
            	<td><input type="password" th:field="*{password}" placeholder="password"></td>
-           	<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
+           
            </tr>
            </table>
             

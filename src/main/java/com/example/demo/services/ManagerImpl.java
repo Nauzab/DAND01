@@ -2,9 +2,15 @@ package com.example.demo.services;
 
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.email.EmailSender;
 import com.example.demo.model.Manager;
 
 import com.example.demo.model.Marathon;
@@ -35,6 +41,12 @@ public class ManagerImpl implements ManagerService {
 
 	@Autowired
 	MarathonRepo marathonRepo;
+	
+	@Autowired
+    private EmailSender notificationService;
+	
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 	@Override
 	public ArrayList<Manager> selectAll() {
@@ -47,12 +59,15 @@ public class ManagerImpl implements ManagerService {
 
 	@Override
 	public boolean updateManager(Manager manager) {
-		if (manager != null && managerRepo.existsById(manager.getId())) {
-			Manager manTemp = managerRepo.findById(manager.getId()).get();
-			manTemp.setName(manager.getName());
-			manTemp.setSurname(manager.getSurname());
-			manTemp.setEmail(manager.getEmail());
-			manTemp.setPassword(manager.getPassword());
+		Manager manToFind = managerRepo.findByEmail(manager.getEmail());
+		System.out.println(manToFind.getId());
+		if (manToFind != null && managerRepo.existsById(manToFind.getId())) {
+			
+			manToFind.setName(manager.getName());
+			manToFind.setSurname(manager.getSurname());
+			manToFind.setEmail(manager.getEmail());
+			manToFind.setPassword(manager.getPassword());
+			managerRepo.save(manToFind);
 			return true;
 		} else
 			return false;
@@ -94,6 +109,7 @@ public class ManagerImpl implements ManagerService {
 			return false;
 		else {
 			managerRepo.save(manager);
+			
 		}
 		return true;
 	}
@@ -169,4 +185,26 @@ public class ManagerImpl implements ManagerService {
 		return null;
 	}
 
-}
+	@Override
+	public void sendRegistrationEmail(String email){
+		EmailSender sendEmailToSender = new EmailSender(javaMailSender);
+		try {
+			sendEmailToSender.sendEmail(email);
+			sendEmailToSender.sendEmailWithAttachment(email);
+		} catch (MailException e) {
+			e.printStackTrace();
+		} catch (MessagingException m) {
+			m.printStackTrace();
+		}
+		
+		 
+		/*SimpleMailMessage message = new SimpleMailMessage();
+         
+	        message.setTo(email) ;
+	        message.setSubject("Test Simple Email");
+	        message.setText("Hello, Im testing Simple Email");
+	  */
+
+	        }// TODO Auto-generated method stub
+		
+	}

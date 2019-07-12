@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.email.EmailSender;
 import com.example.demo.model.Runner;
 import com.example.demo.services.RunnerServiceIMP;
 
@@ -23,14 +24,25 @@ public class RunnerController {
 	@Autowired
 	RunnerServiceIMP runnerserviceimp;
 	
+	@Autowired
+	EmailSender mailSender;
+	
 	@GetMapping(value="/main")
 	public String main(Runner runner) {
 		return "main";
 		
 	}
-	@GetMapping(value="/runnerview/{id}")
-		public String runnerview(@PathVariable(name="id") int id, Runner runner,Model model) {
-		model.addAttribute("runner", runnerserviceimp.selectById(id));
+	@GetMapping(value="/runnerview/{id_r}")
+		public String runnerview(@PathVariable(name="id_r") int id, Runner runner,Model model) {
+		try{
+		Runner run = runnerserviceimp.selectById(id);
+		
+		model.addAttribute("name", run.getName());
+		model.addAttribute("surname", run.getSurname());
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		return "runnerview";
 	}
 	
@@ -38,21 +50,19 @@ public class RunnerController {
 	@GetMapping(value = "/runnerregister") //localhost:8080/RunnerRegister
 	public String RunnerRegister(Runner runner) { 
 		
-		
-
-		
 		return "runnerregister";
 	}
+	
 	@PostMapping(value = "/runnerregister") //localhost:8080/RunnerRegister
 	public String RunnerRegisterPost(@Valid Runner runner,BindingResult result) { 
 		
-		
-		if(result.hasErrors())
+		if(result.hasErrors() && runnerserviceimp.findByEmail(runner.getEmail()) == null)
 			return "runnerregister";
 		
 		else 
-		
 		runnerserviceimp.insertNewRunner(runner);
+		String email = runner.getEmail();
+		runnerserviceimp.sendRegistrationEmail(runner.getEmail());
 		return "redirect:/runner/runnerlogin";
 	}
 	
@@ -60,13 +70,9 @@ public class RunnerController {
 
 	
 	@GetMapping(value = "/runnerlogin")
-	public String RunnerLogin(Runner runner)
-	{
-	
-	
-	return "runnerlogin";
-	
-}
+	public String RunnerLogin(Runner runner) {
+	return "runnerlogin";	
+	}
 
 	@PostMapping(value = "/runnerlogin")
 	public String RunnerLoginpost(@Valid Runner runner, BindingResult result)
@@ -87,29 +93,37 @@ public class RunnerController {
 	}
 }
 		
-	@GetMapping(value="/firstpage") // localhost:8080/firstpage
+/*	@GetMapping(value="/firstpage") // localhost:8080/firstpage
 	public String chooseRunnerGet() {
 			// method
 			return "firstpage";	
 		}
-		
-	@PostMapping(value="Runner")// after submit button pressed
+		*/
+	
+	@PostMapping(value="/main")// after submit button pressed
 	public String chooseRunnerPost() {
 
-		return "redirect:/runner/runnerregister";
-		}
-	@GetMapping(value="/updaterunner/{id}")
-		public String updaterunner(@PathVariable(name = "id") int id, Model model) {
-			model.addAttribute("runner", runnerserviceimp.selectById(id));
+	return "redirect:/runner/main";
+	}
+		
+	//@PostMapping(value="Runner")// after submit button pressed
+	//public String chooseRunnerPost() {
+
+		//return "redirect:/runner/runnerregister";
+		//}
+	@GetMapping(value="/updaterunner/{id_r}")
+		public String updaterunner(@PathVariable(name = "id_r") int id_r, Model model) {
+			model.addAttribute("runner", runnerserviceimp.selectById(id_r));
 
 		
 		return "updaterunner";
 
 	}
-	@PostMapping(value = "/updaterunner/{id}")
-	public String runnerpost(@PathVariable(name = "id") int id, Runner runner) {
-		runnerserviceimp.selectById(id);
-		return "redirect:/runner/runnerview/{id}";
+	@PostMapping(value = "/updaterunner/{id_r}")
+	public String runnerpost(@PathVariable(name = "id_r") int id_r, Runner runner) {
+		runnerserviceimp.updateRunnerById(runner, id_r);
+	
+		return "redirect:/runner/runnerview/{id_r}";
 	}
 	@GetMapping(value = "/allrunners")
 	public String allcarsview(Model model) {
@@ -120,7 +134,6 @@ public class RunnerController {
 	
 	@GetMapping(value = "/searchrunner")
 		public String searchrunner(Runner runner) {
-			
 			
 		
 		return "searchrunner";

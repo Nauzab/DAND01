@@ -107,8 +107,7 @@ public class Runner {
 
 	@Override
 	public String toString() {
-		return "Runner [name=" + name + ", surname=" + surname + ", sex=" + sex + ", password=" + password + ", email="
-				+ email + "]";
+		return "Hello " + this.name + " " + this.surname + "!";
 	}
 	
 

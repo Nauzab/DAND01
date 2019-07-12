@@ -13,6 +13,7 @@ public interface RunnerService {
 	boolean updateRunnerById(Runner runner, int id);	
 	Runner findByNameAndSurname(String name, String surname);		
 	Runner findByEmail(String email);
+	void sendRegistrationEmail(String email);
 				
 
 }

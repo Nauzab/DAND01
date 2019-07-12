@@ -18,6 +18,7 @@ public interface ManagerService {
 	int findManagerId(String email);
 	Manager findByID(int id)  throws Exception;
 	Manager findByEmail(String email);
+	void sendRegistrationEmail(String email);
 	
 	
 }

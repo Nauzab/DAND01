@@ -23,7 +23,7 @@ public class TestManagerService {
 	
 	ManagerImpl managerImpl;
 	
-	ArrayList<Manager> managersSimulation;
+	ArrayList<Manager> managersSimulation = new ArrayList<>();
 	Manager manager1; 
 	Manager manager2;
 	

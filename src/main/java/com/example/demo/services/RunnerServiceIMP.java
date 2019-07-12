@@ -2,18 +2,29 @@ package com.example.demo.services;
 
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-
+import com.example.demo.email.EmailSender;
 import com.example.demo.model.Runner;
 import com.example.demo.repo.RunnerRepo;
 
 @Service
 public class RunnerServiceIMP implements RunnerService {
+	
 
 	@Autowired
 	RunnerRepo runnerrepo;
+	
+	@Autowired
+    private EmailSender notificationService;
+	
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 	@Override
 	public ArrayList<Runner> selectAll() {
@@ -103,4 +114,17 @@ public class RunnerServiceIMP implements RunnerService {
 		}
 		
 	}
+
+	@Override
+	public void sendRegistrationEmail(String email) {
+		EmailSender sendEmailToSender = new EmailSender(javaMailSender);
+		try {
+			sendEmailToSender.sendEmail(email);
+			sendEmailToSender.sendEmailWithAttachment(email);
+		} catch (MailException e) {
+			e.printStackTrace();
+		} catch (MessagingException m) {
+			m.printStackTrace();
+	}
+}
 }

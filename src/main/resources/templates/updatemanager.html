@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <h1>Update a Manager</h1>
- <form action="#" th:action="@{/manager/updatemanager/__${id}__}" th:object="${manager}" method="post">
+ <form action="#" th:action="@{/manager/updatemanager/__${id_m}__}" th:object="${manager}" method="post">
  	<p>Input Your Name </p>
   		<input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
    	<p>Input Your Surname </p>
@@ -9,10 +9,28 @@
     <p>Input Your Email </p>
    		<input type="text" name="Email" th:field="*{email}" placeholder="Email"><br>
     <p>Input Your Password </p>
-   		<input type="text" name="password" th:field="*{password}" placeholder="Password"><br>
+            <td><input type="password" placeholder="Password" th:field="*{password}" id="password" required></td>
+        	<td><input type="password" placeholder="Confirm Password" id="confirm_password" required></td>
+
 
   		<input type="submit" value="Submit">
 </form> 
 
 </body>
+
+<script>
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
 </html>

@@ -19,16 +19,23 @@ body, html {height: 100%}
 </style>
  <title>managerarea</title>
 <body>
+
 <p th:text="'Hello ' + ${name} + ' ' + ${surname} + '!'">
-<form action="#" th:action="@{/marathon/addmarathon/__${id_m}__}" th:object="${manager}" method="post">
+
+
+<form action="#" th:action="@{/manager/updatemanager/__${id_m}__}" method="get">
+<input type="submit" value="Update information about me">
+</form>
+
+<form action="#" th:action="@{/manager/addmarathon/__${id_m}__}" method="get">
 <input type="submit" value="Create Marathon">
 </form>
 
-<form action="#" th:action="@{/marathon/downloadrunnerdata}" th:object="${manager}" method="post">
+<form action="#" th:action="@{/manager/downloadrunnerdata}" th:object="${manager}" method="post">
 <input type="submit" value="Download Runner's list">
 </form>
 
-<form action="#" th:action="@{/marathon/downloadmarathondata}" th:object="${manager}" method="post">
+<form action="#" th:action="@{/manager/downloadmarathondata}" th:object="${manager}" method="post">
 <input type="submit" value="Download Marathons's information">
 </form>
 

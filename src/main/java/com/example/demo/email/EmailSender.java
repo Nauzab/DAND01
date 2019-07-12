@@ -1,10 +1,18 @@
 package com.example.demo.email;
 import java.util.Properties;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Manager;
@@ -13,39 +21,63 @@ import com.example.demo.model.Manager;
 @Service
 public class EmailSender {
 
-    private JavaMailSender JavaMailSender;
+
+    private JavaMailSender javaMailSender;
+    /**
+	 * 
+	 * @param javaMailSender
+	 */
+    
+    //@param javaMailSender
+    
+    @Autowired
+	public EmailSender(JavaMailSender javaMailSender) {
+		this.javaMailSender = javaMailSender;
+	}
+    /**
+	 * This function is used to send mail without attachment.
+	 * @param manager
+	 * @throws MailException
+	 */
+    
+    
     	
-    	public void sendEmail(Manager manager)  {
+    public void sendEmail(String email) throws MailException  {
     		 
     		//send email
     	 
-    		SimpleMailMessage mail = new SimpleMailMessage();
-    		mail.setTo(manager.getEmail());
-    	
-    		mail.setFrom("dandboot@gmail.com");
-    		mail.setSubject("test");
-    		mail.setText("test");
-     
+    	SimpleMailMessage mail = new SimpleMailMessage();
+    	mail.setTo(email);
+    	mail.setSubject("Registration to Marathon Tool");
+    	mail.setText("Your registration to Marathon Tool completed succesfully.");
+    	javaMailSender.send(mail);
     	 
-    		
-    		JavaMailSender jsd =getJavaMailSender();
-    		jsd.send(mail);
     	}
-    	 
-    	public JavaMailSender getJavaMailSender() {
-    	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-    	    mailSender.setHost("smtp.gmail.com");
-    	    mailSender.setPort(587);
+    
 
-    	    mailSender.setUsername("dandboot@gmail.com");
-    	    mailSender.setPassword("bootdand");
+	/**
+	 * This fucntion is used to send mail that contains a attachment.
+	 * 
+	 * @param user
+	 * @throws MailException
+	 * @throws MessagingException
+	 */
+ 
+    public void sendEmailWithAttachment(String email) throws MailException, MessagingException {
 
-    	    Properties props = mailSender.getJavaMailProperties();
-    	    props.put("mail.transport.protocol", "smtp");
-    	    props.put("mail.smtp.auth", "true");
-    	    props.put("mail.smtp.starttls.enable", "true");
-    	    props.put("mail.debug", "true");
+		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		
+		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 
-    	    return mailSender;
-    	}
-    }
+		helper.setTo(email);
+		helper.setSubject("Testing Mail API with Attachment");
+		helper.setText("Please find the attached document below.");
+
+		ClassPathResource classPathResource = new ClassPathResource("/images/website.jpg");
+		helper.addAttachment(classPathResource.getFilename(), classPathResource);
+
+		javaMailSender.send(mimeMessage);
+	}
+}
+
+

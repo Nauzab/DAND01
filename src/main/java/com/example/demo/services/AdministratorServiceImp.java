@@ -35,8 +35,9 @@ public class AdministratorServiceImp implements AdministratorService {
 		if(administrator == null) {
 			return false;
 		}
-		if(adminRepo.existsById(administrator.getId_a())) {
+		if(adminRepo.existsById(administrator.getId_a()) || adminRepo.findAdministratorByEmail(administrator.getEmail()) != null) {
 			return false;
+		
 		}else {
 			adminRepo.save(administrator);
 			return true;		

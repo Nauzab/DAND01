@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/w3images/forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+ <body>
     <title>marathon-tool</title>
   </head>
-  <body>
+ 
     <h1>Welcome to Marathon Tool</h1>
 
     <!-- Optional JavaScript -->
@@ -20,11 +31,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
 <h2>Please, choose your way</h2>
-<form action="#" th:action="@{/manager/addmanager}" th:object="${manager}" method="post">
+<form action="#" th:action="@{/manager/managermain}" method="post">
 <input type="submit" value="Manager">
 </form>
 
-<form action="#" th:action="@{/runner/addrunner}" th:object="${runner}" method="post">
+<form action="#" th:action="@{/runner/main}" th:object="${runner}" method="get">
 <input type="submit" value="Runner">
 </form>
 

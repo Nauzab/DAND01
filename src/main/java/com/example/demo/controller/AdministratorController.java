@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,15 +67,44 @@ public class AdministratorController {
 		}
 		
 		if(temp) 
-			return "redirect:/admin/createManager";
+			return "redirect:/admin/adminmain";
 		
 		
 	
 		return "authorizeadmin";
 	}
 	
+	@GetMapping(value = "/adminmain")
+	public String adminmain() {
+		
+		return "adminmain";
+	}
+	
+	@GetMapping(value = "/adminmarathonview")
+	public String marathonview(Model model) {
+
+		model.addAttribute("marathonlist", marathonService.selectAll());
+		return "adminmarathonview";
+	}
+	
+	@GetMapping(value = "/deletemarathon")
+	public String deletemarathonviewGet(Model model) {
+
+		model.addAttribute("marathon", marathonService.selectAll());
+		return "deletemarathon";
+	}
+	
+	@PostMapping(value = "/deletemarathon")
+	public String deletemarathonviewPost(Marathon marathon) {
+		
+		
+		return "redirect:/admin/deleteMarathon/"+ marathon.getId();
+	}
+	
+	
+	
 	@GetMapping(value = "/createManager")
-	public String createManagerGet(Manager manager) {
+	public String createManagerGet(Manager manager) { 
 		
 		
 		return "createmaneger" ;
@@ -133,7 +163,7 @@ public class AdministratorController {
 	public String deleteMarathonGet(@PathVariable(name = "id") int id) {
 		
 		marathonService.deleteMarathonById(id);
-		return "firstpage";
+		return "deletemarathon";
 	}
 
 }

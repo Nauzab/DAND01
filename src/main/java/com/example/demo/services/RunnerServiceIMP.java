@@ -31,7 +31,7 @@ public class RunnerServiceIMP implements RunnerService {
 		if (runner.getID_r() != 0 || runnerrepo.existsById(runner.getID_r())) {
 			return false;
 		} else {
-
+       runnerrepo.save(runner);
 			return true;
 		}
 	}
@@ -91,4 +91,16 @@ public class RunnerServiceIMP implements RunnerService {
 	}
 
 }
+	
+@Override
+	public Runner findByEmail(String email) {
+		Runner runner = runnerrepo.findByEmail(email);
+		
+		if(runner!=null) {
+			return runner;
+		}else {
+			return null;
+		}
+		
+	}
 }

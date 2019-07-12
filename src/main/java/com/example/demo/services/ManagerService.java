@@ -1,3 +1,4 @@
+
 package com.example.demo.services;
 
 
@@ -14,4 +15,10 @@ public interface ManagerService {
 	boolean authorizeManager(String email, String password);
 	boolean createNewMarathon(Marathon marathon);
 	boolean insertNewManager(Manager manager);
+	boolean exportDataExcel();
+	int findManagerId(String email);
+	Manager findByID(int id)  throws Exception;
+	Manager findByEmail(String email);
+	
+	
 }

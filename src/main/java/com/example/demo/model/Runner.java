@@ -108,6 +108,10 @@ public class Runner {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public void setId_r(int id_r) {
+		///To do create helper class for set mothods
+		this.id_r = id_r;
+	}
 
 	@Override
 	public String toString() {

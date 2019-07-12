@@ -108,6 +108,9 @@ public class Manager {
 		
 		this.email = email;
 	}
+	public void setId(int id) {
+		this.id= id;
+	}
 	
 	
 	

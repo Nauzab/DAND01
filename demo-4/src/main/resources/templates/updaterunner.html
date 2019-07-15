@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update Data</h1>
+ <form action="#" th:action="@{/runner/updaterunner/__${id_r}__}" th:object="${runner}" method="post">
+ 
+ <p>Name</p><input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>
+  <p>Surname</p><input type="text" name="Surname" th:field="*{surname}" placeholder="Surname"><br>
+  <p>Email</p> <input type="text" name="Email" th:field="*{email}" placeholder="Email"><br>
+  <p>Password</p>
+
+      <td>  <input type="password" placeholder="Password" th:field="*{password}" id="password" required></td>
+      <td>  <input type="password" placeholder="Confirm Password" id="confirm_password" required></td>
+  		
+  		<input type="submit" value="Submit">		
+	</form>
+	
+</body>
+
+<script>
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+  
+</html>

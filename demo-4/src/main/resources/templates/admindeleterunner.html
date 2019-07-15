@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+
+<table>
+<tr th:each="s : ${nun}">
+	<td th:text="${s.getName()}"> </td>
+	<td th:text="${s.getSurname()}"> </td>
+	<td th:text="${s.getEmail()}"> </td>
+	<td th:text="${s.getSex()}"> </td>
+	<td th:text="${s.getId_r()}"> </td>
+</tr>
+
+
+</table>
+
+
+<form th:action="@{/admin/admindeleterunner}"  th:object="${runner}"method="post">
+	<p>Input runner Id here</p> <input type="text" name="Id" th:field="*{id_r}" placeholder="Id"><br>
+	  <input type="submit" value="Submit">
+</form>
+	</form>
+		<form action="#" th:action="@{/admin/adminmain}"  method="get">
+	<input type="submit" value="BackToMain">
+	</form>
+
+</body>
+</html>

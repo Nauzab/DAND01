@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- <p th:text="${marathon.toString()}"> -->
+
+<h1>Choose distances to add</h1>
+<table>
+<tr th:object="${marathon}">
+	<td th:text="${marathon.getName()}"> </td>
+	<td th:text="${marathon.getPlace()}"> </td>
+	<td th:text="${marathon.getDate()}"> </td>
+	<td th:text="${marathon.getId()}"> </td>
+	
+</table>
+
+<form action="#" th:action="@{/manager/areamarathon/__${id_mar}__}" th:object="${group}" method="post">
+	<ul>
+		<li th:each="gr : ${grouplist}">
+			<input type ="checkbox" name="Distance" th:value="${distance}"><!--  th:field="*{distance}" --> 
+			<label  
+					th:text="${gr.distance+' km'}">
+					 <!-- th:for="${#ids.prev('group')}"  -->
+			</label>
+			<input type = "submit" value="Submit">
+		</li>
+	</ul>
+ <!-- <p>Select all that apply</p> <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>  -->
+ </form>
+</body>
+<html>

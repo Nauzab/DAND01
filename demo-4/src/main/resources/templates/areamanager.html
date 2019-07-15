@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/w3images/forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+ <title>managerarea</title>
+<body>
+
+<p th:text="'Hello ' + ${name} + ' ' + ${surname} + '!'">
+
+
+<form action="#" th:action="@{/manager/updatemanager/__${id_m}__}" method="get">
+<input type="submit" value="Update information about me">
+</form>
+
+<form action="#" th:action="@{/manager/addmarathon/__${id_m}__}" method="get">
+<input type="submit" value="Create Marathon">
+</form>
+
+<form action="#" th:action="@{/manager/downloadrunnerdata/__${id_m}__}" method="get">
+<input type="submit" value="Download Runner's list">
+</form>
+
+
+</body>
+</html>

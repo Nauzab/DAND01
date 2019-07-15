@@ -7,18 +7,26 @@
 	<input type="submit" value="Marathons ">
 	</form>
 	
+	<form action="#" th:action="@{/admin/createadmin}"  method="get">
+	<input type="submit" value="Create Admin">
+	</form>
 	<form action="#" th:action="@{/admin/createManager}"  method="get">
 	<input type="submit" value="Create manager">
 	</form>
 	<form action="#" th:action="@{/admin/createRunner}"  method="get">
 	<input type="submit" value="create runner">
+	</form>	
+	<form action="#" th:action="@{/admin/adminview}"  method="get">
+	<input type="submit" value="Edit admin">
 	</form>
 	<form action="#" th:action="@{/admin/adminmanagerview}"  method="get">
 	<input type="submit" value="Edit manager">
 	</form>
-	
 	<form action="#" th:action="@{/admin/adminrunnerview}"  method="get">
 	<input type="submit" value="Edit runner">
 	</form>
+	
+	
+	
 	</body>
 </html>

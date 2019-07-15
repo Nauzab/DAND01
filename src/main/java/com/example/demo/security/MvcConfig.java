@@ -1,4 +1,4 @@
-package com.example.demo.security;
+/*package com.example.demo.security;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -14,4 +14,4 @@ public class MvcConfig implements WebMvcConfigurer {
 
 
 
-}
+}*/

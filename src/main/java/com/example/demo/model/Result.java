@@ -29,6 +29,9 @@ public class Result {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_reg")
     private Registration registration;
+
+	private Random random;
+	
 	public Result() {}
 	
 	public Result(Time value) {
@@ -49,11 +52,32 @@ public class Result {
 		this.value = value;
 	}
 
-	public Time generetaResult(int count, double distance) {
+	public void generetaResult(double distance) {
+			random = null;
+			final int millisInDay = 24+60*60*100;
+			Time time;
+			int m;
+			
+		if(distance == 5.0 ) {
+			 m = random.nextInt(7) + 20;
+			time = new Time((long)random.nextInt(millisInDay) -m*60*60*100) ;
+			
+				setValue(time);
+		}
+		else if (distance == 10.0) {
+			m = random.nextInt(8) + 16;
+			time = new Time((long)random.nextInt(millisInDay) -m*60*60*100) ;
+			setValue(time);
+		}
+		else if(distance == 21.0975) {
+			m = random.nextInt(10) + 6;
+			time = new Time((long)random.nextInt(millisInDay) -m*60*60*100) ;
+		}
+		else if(distance == 42.195) {
+			time = new Time((long)random.nextInt(millisInDay));
+			setValue(time);;
+		}
 	
-		
-		
-		return value;
 		
 	}
 	

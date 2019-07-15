@@ -64,6 +64,9 @@ public class Administrator {
 		return id_a;
 	}
 
+	public void setId_a( int id_a) {
+		this.id_a = id_a;
+	}
 
 	public String getName() {
 		return name;

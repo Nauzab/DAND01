@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +64,20 @@ public class AdministratorServiceImp implements AdministratorService {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public boolean deleteAdminById(int id) {
+		if(adminRepo.existsById(id)) {
+			adminRepo.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+
+	public ArrayList<Administrator> selectAll() {
+		
+		return (ArrayList<Administrator>) adminRepo.findAll();
 	}
 	
 	

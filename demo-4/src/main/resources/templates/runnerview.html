@@ -25,17 +25,23 @@ body, html {height: 100%}
 <input type="submit" value="Update information about me">
 </form>
 
-<form action="#" th:action="@{/marathon/marathowview}" th:object="${runner}" method="post">
+<form action="#" th:action="@{/runner/manmarathonview/__${id_r}__}" th:object="${runner}" method="post">
 <input type="submit" value="Register to Marathon">
 </form>
 
-<form action="#" th:action="@{/marathon/marathowview}" th:object="${runner}" method="post">
+<form action="#" th:action="@{/runner/manmarathonview}" th:object="${runner}" method="post">
 <input type="submit" value="Show my marathon's history">
 </form>
 
-<form action="#" th:action="@{/marathon/marathowview}" th:object="${runner}" method="post">
+<form action="#" th:action="@{/runner/manmarathonview}" th:object="${runner}" method="post">
 <input type="submit" value="Download results">
 </form>
 
+
+<script language="JavaScript">
+<!--
+alert("Nice to see you! Available marathon list was sent to your e-mail");
+//-->
+</script>
 
 </html>

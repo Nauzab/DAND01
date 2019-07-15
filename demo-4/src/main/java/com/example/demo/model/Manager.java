@@ -21,9 +21,9 @@ public class Manager {
 	@Column(name="ID_m")//id column will be in table
 	private int id;
 	
-	@NotEmpty
-	@NotNull
-	@Pattern(regexp="[a-zA-z]+", message="Please write correct surname incuding only letters")
+//	@NotEmpty
+	//@NotNull
+	//@Pattern(regexp="[a-zA-z]+", message="Please write correct surname incuding only letters")
 	@Column(name="Name")
 	private String name;
 	
@@ -77,12 +77,18 @@ public class Manager {
 
 
 	public String getName() {
+		
 		return name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if((name != null) 
+        && (name.matches("^[a-zA-Z]*$"))) {
+			this.name = "";
+		}
+	else this.name = name;
 	}
+	
 
 	public String getSurname() {
 		return surname;

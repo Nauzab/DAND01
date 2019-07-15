@@ -58,9 +58,4 @@ public class TestManagerService {
 	}
 	
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
 }

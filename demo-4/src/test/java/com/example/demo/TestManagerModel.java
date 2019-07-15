@@ -19,8 +19,7 @@ public class TestManagerModel {
 	@Before
 	public void setup()
 	{
-		manager1 = new Manager("Peter", "Parker", "spiderman@spiderman.com", "SpiderMan19");
-		manager2 = new Manager("   12", "saf@45", "email", "");
+		manager1 = new Manager("Peter", "Parker", "SpiderMan19", "spiderman@spiderman.com");
 	}
 	
 	@Test
@@ -30,20 +29,7 @@ public class TestManagerModel {
 		assertEquals("Manager's e-mail", "spiderman@spiderman.com", manager1.getEmail());
 		assertEquals("Manager's password", "SpiderMan19", manager1.getPassword());
 	}
-	@Test
-	public void testManager2() {
-		assertEquals("Manager's name", "", manager2.getName());
-		assertEquals("Manager's surname", "", manager2.getSurname());
-		assertEquals("Manager's e-mail", "", manager2.getEmail());
-		assertEquals("Manager's password", "", manager2.getPassword());
-	}
-	
-	
-	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+
 	
 	
 

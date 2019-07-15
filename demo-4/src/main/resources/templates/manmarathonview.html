@@ -18,10 +18,10 @@ body, html {height: 100%}
 </style>
 <body>
 
-<h1>Choose marathon for participation</h1>
+<h1>Marathons for participation</h1>
 <table>
 <tr th:each="marathon : ${marathonlist}">
-	<td> <a th:href="@{'areamarathon/'+${marathon.getId()}}" th:text="${marathon.getName()}"></a></td>
+	<td> <a th:href="@{'/runner/areamarathon/__${id_r}__/'+${marathon.getId()}}" th:text="${marathon.getName()}"></a></td>
 	<td th:text="${marathon.getPlace()}"> </td>
 	<td th:text="${marathon.getDate()}"> </td>
 	<td th:text="${marathon.getId()}"> </td>

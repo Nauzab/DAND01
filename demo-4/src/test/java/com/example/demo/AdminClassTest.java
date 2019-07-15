@@ -8,19 +8,19 @@ import com.example.demo.model.Administrator;
 
 public class AdminClassTest {
 	Administrator administrator1 = new Administrator(null, null, null, null);
-	Administrator administrator2 = new Administrator("Peter", "Parker", "spiderman@spiderman.com", "SpiderMan19");
+	Administrator administrator2 = new Administrator("Peter", "Parker", "SpiderMan19", "spiderman@spiderman.com");
 	@Test	
-	public void testManagerName() {
+	public void testAdminName() {
 		assertEquals(null, administrator1.getName());
 	}
 		
 	@Test
-	public void testManagerSurname() {
+	public void testAdminSurname() {
 		assertEquals(null, administrator1.getName());
 	}
 	
 	@Test
-	public void testManagerEmail() {
+	public void testAdminEmail() {
 		assertEquals(null, administrator1.getEmail());
 	}
 	
@@ -31,22 +31,22 @@ public class AdminClassTest {
 		
 	}
 	@Test	
-	public void testManagerName2() {
+	public void testAdminName2() {
 		assertEquals("Peter", administrator2.getName());
 	}
 		
 	@Test
-	public void testManagerSurname2() {
-		assertEquals("Parker", administrator2.getName());
+	public void testAdminSurname2() {
+		assertEquals("Parker", administrator2.getSurname());
 	}
 	
 	@Test
-	public void testManagerEmail2() {
+	public void testAdminEmail2() {
 		assertEquals("spiderman@spiderman.com", administrator2.getEmail());
 	}
 	
 	@Test
-	public void testManagerPassword2() {
+	public void testAdminPassword2() {
 		assertEquals("SpiderMan19", administrator2.getPassword());
 		
 	}

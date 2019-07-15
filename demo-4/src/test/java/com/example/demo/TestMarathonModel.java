@@ -1,4 +1,4 @@
-package com.example.demo;
+/*package com.example.demo;
 
 import static org.junit.Assert.*;
 
@@ -25,10 +25,7 @@ public class TestMarathonModel {
 	public void setup() {
 
 	}
-	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 }
+*/
+

@@ -73,15 +73,27 @@ public class Administrator {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
+		if (name == null) {
+			this.name = "";
+		}
+		else {
+			this.name = name;
+		}
+
+		}
+		
 
 	public String getSurname() {
 		return surname;
 	}
 
 	public void setSurname(String surname) {
-		this.surname = surname;
+		if (surname == null) {
+			this.surname = "";
+		}
+		else {
+			this.surname = surname;
+		}
 	}
 
 	public String getPassword() {
@@ -89,7 +101,12 @@ public class Administrator {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		if (password == null) {
+			this.password = "";
+		}
+		else {
+			this.password = surname;
+		}
 	}
 
 	public String getEmail() {
@@ -97,7 +114,12 @@ public class Administrator {
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		if (email == null) {
+			this.email = "";
+		}
+		else {
+			this.email = email;
+		}
 	}
 	
 	

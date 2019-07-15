@@ -22,16 +22,15 @@ public class TestRunnerModel {
 	@Before
 	public void setup()
 	{
-		runner1 = new Runner("Peter", "Parker", "male", "spiderman@spiderman.com", "SpiderMan19");
+		runner1 = new Runner("Peter", "Parker", "male", "SpiderMan19", "spiderman@spiderman.com");
 		runner2 = new Runner("   12", "saf@45", "goodguy", "email", "");
 	}
 
-	
-	
-	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testRunner1() {
+		assertEquals("Runner's name", "Peter", runner1.getName());
+		assertEquals("Runner's surname", "Parker", runner1.getSurname());
+		assertEquals("Runner's e-mail", "spiderman@spiderman.com", runner1.getEmail());
+		assertEquals("Runner's password", "SpiderMan19", runner1.getPassword());
 	}
-
 }

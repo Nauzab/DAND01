@@ -24,10 +24,10 @@ public class TestManagerRepo {
 	public void setup()
 	{
 		manager1 = new Manager("Peter", "Parker", "spiderman@spiderman.com", "SpiderMan19");
-		manager1 = new Manager("Mary", "Jane", "mary@mary.com", "Mary19");
+		manager2 = new Manager("Mary", "Jane", "mary@mary.com", "Mary19");
 	}
 	
-	@Test
+	/*@Test
 	public void testIdGenerator() {
 		managerRepo.save(manager1);
 		for (Manager manager : managerRepo.findAll()) {
@@ -41,6 +41,7 @@ public class TestManagerRepo {
 		
 		}
 	}
+	
 	@Test
 	public void testManagerInsert() {
 		managerRepo.save(manager1);
@@ -59,6 +60,8 @@ public class TestManagerRepo {
 	}
 	
 	
+	
+	
 	@Test
 	public void testManagerUpdate() {
 		managerRepo.save(manager2); // save new manager Mary Jane
@@ -72,17 +75,21 @@ public class TestManagerRepo {
 		assertEquals("Gwen", retrieveManagerAfterUpdate.getSurname());
 		
 	}
+	*/
+	
 	
 	@Test
 	public void testManagerDelete() 
 	{
 		managerRepo.save(manager2);
+		long count = managerRepo.count();
+		
 		managerRepo.delete(manager2);
+		long countAfterDelete = managerRepo.count();
+		assertEquals("delta after removing one subject must be 1", 1, count-countAfterDelete);
+		
+		
 	}
 	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 }

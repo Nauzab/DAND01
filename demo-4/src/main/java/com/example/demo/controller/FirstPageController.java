@@ -38,14 +38,14 @@ public class FirstPageController {
 		
 		Manager men = new Manager( "Janis", "Krauls", "123456", "Janis@krauls.com");
 		
-		Marathon mar = new Marathon ("Ventspils Maratons" , "Ventspils", men, "12/08/19");
-		Runner run = new Runner("Dand", "Runner", "male", "dandrunner", "runnerdand@gmail.com");
+	//	Marathon mar = new Marathon ("Ventspils Maratons" , "Ventspils", men, "12/08/19");
+		//Runner run = new Runner("Dand", "Runner", "male", "dandrunner", "runnerdand@gmail.com");
 		//ExportData data = new ExportData();
 		
 		adminService.insertnewAdmin(ad);
 		manService.insertNewManager(men);
-		marService.insertNewMarathon(mar, 2);
-		runnerServiceImp.insertNewRunner(run);
+	//	marService.insertNewMarathon(mar, 2);
+		//runnerServiceImp.insertNewRunner(run);
 		
 		return "firstpage";
 	}

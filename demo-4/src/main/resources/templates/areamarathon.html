@@ -12,7 +12,7 @@
 	
 </table>
 
-<form action="#" th:action="@{/manager/areamarathon/__${id_mar}__}" th:object="${group}" method="post">
+<form action="#" th:action="@{/runner/areamarathon/__${id_r}__/__${id_mar}__}" th:object="${group}" method="post">
 	<ul>
 		<li th:each="gr : ${grouplist}">
 			<input type ="checkbox" name="Distance" th:value="${distance}"><!--  th:field="*{distance}" --> 

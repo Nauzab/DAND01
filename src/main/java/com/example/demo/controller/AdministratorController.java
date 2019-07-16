@@ -72,7 +72,14 @@ public class AdministratorController {
 	}
 	//----------------End of Autorize admin--------------//
 	
+	//----------------Admin logout----------------------//
 	
+	@GetMapping(value = "adminlogout")
+	public String adminlogout() {
+		
+		return "redirect:/firstpage";
+	}
+	//----------------end of admin logout---------------//
 	
 	//---------------Create new Admin-------------------//
 	@GetMapping(value = "/createadmin")

@@ -26,6 +26,11 @@
 	<input type="submit" value="Edit runner">
 	</form>
 	
+	<a href="javascript: document.logoutForm.submit()" > Logout </a>
+
+	<form name="logoutForm" th:action="@{/admin/adminlogout}" method="get" th:hidden="true">
+      <input hidden type="submit" value="Logout"/>
+	</form> 
 	
 	
 	</body>

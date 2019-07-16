@@ -2,129 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-    <head>
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Admin authorize section </title>
     </head>
     <body> 
         <form action="#" th:action="@{/admin/authorizeAdmin}" th:object="${administrator}" method="post">
         <table>
            <tr>
-           	<td><input type="text" th:field="*{email}" placeholder="Email"></td>
+           	<td><input type="email" th:field="*{email}" placeholder="Email"></td>
            	
            </tr>
            <tr>
            	<td><input type="password" th:field="*{password}" placeholder="password"></td>
-       
+           
            </tr>
            </table>
             
-           <div> <button class="btn btn-secondary" Secondary type="submit">Login</button></div>
+            <div><input type="submit" value="Sign In"/></div>
         </form>
     </body>
-    <Style>
-    legend.scheduler-border {
-    width:inherit; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom:none;
-}
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-fieldtest{
-display: block;
-  margin-left: 2px;
-  margin-right: 2px;
-  padding-top: 0.35em;
-  padding-bottom: 0.625em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border: 2px groove (internal value);
-}
-body{
-    margin: 0;
-    padding: 0;
-    background: url("https://wallpaperplay.com/walls/full/e/1/c/5074.jpg");
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
-}
-.login-box{
-    width: 320px;
-    height: 420px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    box-sizing: border-box;
-    padding: 70px 30px;
-}
-.avatar{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
-}
-h1{
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-}
-.login-box p{
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-.login-box input{
-    width: 100%;
-    margin-bottom: 20px;
-}
-.login-box input[type="text"], input[type="password"]
-{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-}
-.login-box input[type="submit"]
-{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #1c8adb;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
-}
-.login-box input[type="submit"]:hover
-{
-    cursor: pointer;
-    background: #39dc79;
-    color: #000;
-}
-
-.login-box a{
-    text-decoration: none;
-    font-size: 14px;
-    color: #fff;
-}
-.login-box a:hover
-{
-    color: #39dc79;
-}
-    
-    </Style>
 </html>

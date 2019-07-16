@@ -23,29 +23,29 @@ public class Administrator {
 
 	@Size(min = 2 , max = 10) 
 	//allow only letters
-	@Pattern(regexp= "[a-zA-Z]+", message = "only letters allowed")
+	//@Pattern(regexp= "[a-zA-Z]+", message = "only letters allowed")
 	@Column(name ="Name")
 	private String name;
 	
 
-	@Size(min = 2 , max = 20) 
+	//@Size(min = 2 , max = 20) 
 	//allow only letters
-	@Pattern(regexp= "[a-zA-Z]+", message = "only letters allowed")
+	//@Pattern(regexp= "[a-zA-Z]+", message = "only letters allowed")
 	@Column(name ="Surname")
 	private String surname;
 	
-	@NotEmpty
-	@NotNull
+	//@NotEmpty
+	//@NotNull
 	@Size(min = 6 , max = 18, message = "Invalid password") 
 	//allows only letters and digits
-	@Pattern(regexp= "^[a-zA-Z0-9]+$", message = "Invalid password")
+	//@Pattern(regexp= "^[a-zA-Z0-9]+$", message = "Invalid password")
 	@Column(name ="Password")
 	private String password;
 	
-	@NotEmpty
-	@NotNull
+	//@NotEmpty
+	//@NotNull
 	//wont allow non email adress
-	@Pattern(regexp= "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$", message = "Not valid email adress")
+	//@Pattern(regexp= "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$", message = "Not valid email adress")
 	@Column(name ="Email")
 	private String email;
 	
@@ -105,7 +105,7 @@ public class Administrator {
 			this.password = "";
 		}
 		else {
-			this.password = surname;
+			this.password = password;
 		}
 	}
 

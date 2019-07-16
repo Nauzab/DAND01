@@ -50,6 +50,7 @@ public class Group {
 		 setDistance(distance);
 	}
 
+
 	public int getId_g() {
 		return id_g;
 	}

@@ -7,9 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.email.EmailSender;
 import com.example.demo.model.Group;
@@ -186,16 +190,20 @@ public class RunnerController {
 	}
 
 	@PostMapping(value="/areamarathon/{id_r}/{id_mar}")
-	public String CreateRegistrationPost(@PathVariable(name="id_r") int id_r, @PathVariable(name="id_mar") int id_mar, Model model, @Valid Registration registration, BindingResult result) {
+	public String CreateRegistrationPost(@PathVariable(name="id_r") int id_r, @PathVariable(name="id_mar") int id_mar, Model model, @Valid Registration registration, 
+			BindingResult result, @RequestParam(value="action", required=true) String action) {
 		
 		
 		if(result.hasErrors()) {
-			return "areamanager/{id_m}";
+			return "areamarathon";
 		}
 		else
 		{
 			   
-	    registrationServiceImp.insertNewRegistration(registration);
+	    registrationServiceImp.insertNewRegistration(id_r, action, id_mar);
+
+	
+	   // System.out.println(registration.getGroup().getId_g());
 	    	//Marathon mar = marathonServiceImpl.findByDate(marathon.getDate());
 	    	return "redirect:/runner/registrationsuccessful/"+id_r;
 		}
@@ -205,8 +213,7 @@ public class RunnerController {
 	public String registrationSuccessful(@PathVariable(name="id_r") int id_r) {
 		return "registrationsuccessful";
 	}
-
-	
-	
 	
 }
+
+	

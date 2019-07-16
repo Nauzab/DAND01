@@ -28,16 +28,54 @@ public class Registration {
 	 @JoinColumn(name = "ID_r")
 	 private Runner runner;
 	 
-	 @OneToOne(mappedBy = "registration")
+	 @OneToOne
+	 @JoinColumn(name = "ID_res")//(mappedBy = "registration")
 	    private Result result;
 	 
 	public Registration() {
 		super();
 	}
+	
+	
+
+	public Registration( Group group, Runner runner, Result result) {
+		super();
+			this.group = group;
+		this.runner = runner;
+		this.result = result;
+	}
+
+
 
 	public int getId_reg() {
 		return id_reg;
 	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+	public Runner getRunner() {
+		return runner;
+	}
+
+	public void setRunner(Runner runner) {
+		this.runner = runner;
+	}
+
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+	
+	
 
 	
 }

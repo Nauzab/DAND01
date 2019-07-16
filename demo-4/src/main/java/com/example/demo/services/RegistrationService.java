@@ -11,4 +11,5 @@ public interface RegistrationService {
 		boolean insertNewRegistration(Registration reg);
 		boolean deleteRegistration(Registration reg);
 		//ArrayList<Group> findByRunnerid(int id_r);
+		boolean insertNewRegistration(int id_r, String action, int id_mar);
 }

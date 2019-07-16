@@ -23,21 +23,33 @@ public class Result {
 	@Column(name ="ID_res")
 	private int id_res;
 	
-	@Column(name ="Value")
-	private Time value;
+	@Column(name ="TimeValue")
+	private Time timeValue;
 
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_reg")
+	@OneToOne(mappedBy = "result")//(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "ID_reg")
     private Registration registration;
 
-	private Random random;
+
 	
-	public Result() {}
-	
-	public Result(Time value) {
-		super();
-		this.value = value;
+	public Registration getRegistration() {
+		return registration;
 	}
+
+
+
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
+	}
+
+
+
+	public Result(double distance) {
+		generetaResult(distance);
+		//this.timeValue = new Time(1, 2,30);
+	}
+	
+	
 
 	public int getId_res() {
 		return id_res;
@@ -45,15 +57,15 @@ public class Result {
 
 
 	public Time getValue() {
-		return value;
+		return timeValue;
 	}
 
-	public void setValue(Time value) {
-		this.value = value;
+	public void setValue(Time timeValue) {
+		this.timeValue = timeValue;
 	}
 
-	public void generetaResult(double distance) {
-			random = null;
+	public void generetaResult(double distance) {	
+		    Random random= new Random();
 			final int millisInDay = 24+60*60*100;
 			Time time;
 			int m;

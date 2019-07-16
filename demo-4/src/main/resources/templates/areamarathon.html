@@ -1,4 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
 <body>
 <!-- <p th:text="${marathon.toString()}"> -->
 
@@ -20,7 +24,8 @@
 					th:text="${gr.distance+' km'}">
 					 <!-- th:for="${#ids.prev('group')}"  -->
 			</label>
-			<input type = "submit" value="Submit">
+			
+			<input type = "submit" name="action" th:value="${gr.distance}">
 		</li>
 	</ul>
  <!-- <p>Select all that apply</p> <input type="text" name="Name" th:field="*{name}" placeholder="Name"><br>  -->
